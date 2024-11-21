@@ -29,7 +29,12 @@ def save(order_data):
             if not customer:
                 raise ValueError(f'Customer with ID {customer_id} not found.')
             
+
             new_order = Order(customer_id=order_data['customer_id'], products=products_db, date=order_data['date'], total_price=order_data['total_price'])
+
+            where order.id == (order.id just created)
+            where product.id == product for product product_ids
+                qty = product[qty]
             
             session.add(new_order)
             print('New Order ID (before commit):', new_order.id)
