@@ -10,7 +10,7 @@ class OrderSchema(ma.Schema):
     # products = fields.List(
     #         fields.Nested(ProductSchemaID (only=("product",)), many=True)
     #     )
-    quantity = fields.Integer(required=True)
+    # quantity = fields.Integer(required=True)
     total_price = fields.Float(required=True)
 
     class Meta:

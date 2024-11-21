@@ -3,10 +3,10 @@ from models.production import Production
 from models.schemas.productionSchema import production_schema, productions_schema
 from services import productionService
 from marshmallow import ValidationError
-from utils.utils import token_required, role_required
+# from utils.utils import token_required, role_required
 
-@token_required
-@role_required('user') 
+# @token_required
+# @role_required('user') 
 
 def save(): # post request - contains JSON
     try:

@@ -8,6 +8,7 @@ class ProductSchema(ma.Schema):
 
 class ProductSchemaID(ma.Schema):
     id = fields.Integer(required=True)
+    qty = fields.Integer(required=True)
 
 product_schema = ProductSchema()
 products_schema = ProductSchema(many=True)

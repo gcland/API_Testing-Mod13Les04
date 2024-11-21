@@ -3,7 +3,7 @@ from models.customer import Customer
 from models.schemas.customerSchema import customer_schema, customers_schema
 from services import customerService
 from marshmallow import ValidationError
-from utils.utils import token_required, role_required
+# from utils.utils import token_required, role_required
 
 
 # @token_required
@@ -28,8 +28,8 @@ def find():
     print(data)
     return data
 
-@token_required
-@role_required('admin')  
+# @token_required
+# @role_required('admin')  
 def get():
     customers = customerService.get()
     return customers

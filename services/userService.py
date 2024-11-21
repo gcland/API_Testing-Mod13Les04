@@ -3,7 +3,7 @@ from sqlalchemy import select, func
 from database import db
 from models.user import User
 from models.schemas.userSchema import users_schema
-from utils.utils import encode_token
+# from utils.utils import encode_token
 
 def save(user_data):
     with Session(db.engine) as session:

@@ -10,23 +10,26 @@ from models.schemas.orderSchema import orders_schema
 def save(order_data):
     with Session(db.engine) as session:
         with session.begin():
-            # products = [{ "id": product['id'], "qty": product['qty']} for product in order_data['products']]
-            # print('Product Id-Qty for order:', products)
-            # product_ids = [product['id'] for product in products]
-            # print('Product IDs for order:', product_ids)
-            product_ids = [product['id'] for product in order_data['products']]
-            products = session.execute(select(Product).where(Product.id.in_(product_ids))).scalars().all()
+            products = [{ "id": product['id'], "qty": product['qty']} for product in order_data['products']]
+            print('Product Id-Qty for order:', products)
+            
+            product_ids = [product['id'] for product in products]
+            print('Product IDs for order:', product_ids)
+
+            # product_ids = [product['id'] for product in order_data['products']]
+            products_db = session.execute(select(Product).where(Product.id.in_(product_ids))).scalars().all()
+            print(products_db, len(products_db))
 
             customer_id = order_data['customer_id']
             customer = session.execute(select(Customer).where(Customer.id == customer_id)).scalars().first()
 
-            if len(products) != len(product_ids):
+            if len(product_ids) != len(products_db):
                 raise ValueError("One or more products do not exist")
 
             if not customer:
                 raise ValueError(f'Customer with ID {customer_id} not found.')
             
-            new_order = Order(customer_id=order_data['customer_id'], products=products, quantity=order_data['quantity'], date=order_data['date'], total_price=order_data['total_price'])
+            new_order = Order(customer_id=order_data['customer_id'], products=products_db, date=order_data['date'], total_price=order_data['total_price'])
             
             session.add(new_order)
             print('New Order ID (before commit):', new_order.id)

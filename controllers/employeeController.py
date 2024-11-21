@@ -3,10 +3,10 @@ from models.employee import Employee
 from models.schemas.employeeSchema import employee_schema, employees_schema
 from services import employeeService
 from marshmallow import ValidationError
-from utils.utils import token_required, role_required
+# from utils.utils import token_required, role_required
 
-@token_required
-@role_required('user') 
+# @token_required
+# @role_required('user') 
 def save(): # post request - contains JSON
     try:
         employee_data = employee_schema.load(request.json)

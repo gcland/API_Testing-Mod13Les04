@@ -2,10 +2,10 @@ from flask import request, jsonify
 from models.schemas.productSchema import product_schema, products_schema
 from services import productService
 from marshmallow import ValidationError
-from utils.utils import token_required, role_required
+# from utils.utils import token_required, role_required
 
-@token_required
-@role_required('admin') 
+# @token_required
+# @role_required('admin') 
 def save(): # post request - contains JSON
     try:
         product_data = product_schema.load(request.json)

@@ -93,8 +93,8 @@ if __name__ == '__main__':
     with app.app_context():
         db.drop_all()
         db.create_all()
-        init_roles_customers_info_data()
-        init_roles_data()
-        init_roles_customers_data()
+        # init_roles_customers_info_data()
+        # init_roles_data()
+        # init_roles_customers_data()
 
     app.run(debug=True)
