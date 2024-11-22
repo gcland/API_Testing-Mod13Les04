@@ -19,7 +19,7 @@ def save(): # post request - contains JSON
     
 def get():
     products = productService.get()
-    return products
+    return products, 200
 
 def find_all_pagination():
     page = request.args.get('page', 1, type=int)

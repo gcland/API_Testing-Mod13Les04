@@ -20,7 +20,7 @@ def save(): # post request - contains JSON
     
 def get():
     orders = orderService.get()
-    return orders
+    return orders, 200
 
 # secondary method to get all orders
 # def find_all():

@@ -4,7 +4,7 @@ from schema import ma
 
 class OrderSchema(ma.Schema):
     id = fields.Integer(required=False)
-    date = fields.Date(required=True)
+    date = fields.String(required=True)
     customer_id = fields.Integer(required=True)
     products = fields.Nested('ProductSchemaID', many=True)
     # products = fields.List(

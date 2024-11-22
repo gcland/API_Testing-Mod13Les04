@@ -22,7 +22,7 @@ def save(): # post request - contains JSON
     
 def get():
     productions = productionService.get()
-    return productions
+    return productions, 200
 
 def employee_performance(): 
     employees = productionService.employee_performance()

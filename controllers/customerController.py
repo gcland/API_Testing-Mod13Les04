@@ -22,17 +22,12 @@ def save(): # post request - contains JSON
         return customer_schema.jsonify(customer_save), 201
     except ValidationError as e:
         return jsonify({"error":str(e)}), 400
-    
-def find():
-    data = customerService.save()
-    print(data)
-    return data
 
 # @token_required
 # @role_required('admin')  
 def get():
     customers = customerService.get()
-    return customers
+    return customers, 200
 
 def total_value(): 
     result = customerService.total_value()

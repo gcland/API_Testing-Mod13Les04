@@ -3,7 +3,7 @@ from schema import ma
 
 class ProductionSchema(ma.Schema):
     id = fields.Integer(required=False)
-    date_produced = fields.Date(required=True)
+    date_produced = fields.String(required=True)
     product_id = fields.Integer(required=True)
     employee_id = fields.Integer(required=True)
     quantity_produced = fields.Integer(required=True)

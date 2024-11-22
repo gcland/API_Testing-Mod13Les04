@@ -91,7 +91,7 @@ if __name__ == '__main__':
     configure_rate_limit()
     
     with app.app_context():
-        db.drop_all()
+        # db.drop_all()
         db.create_all()
         # init_roles_customers_info_data()
         # init_roles_data()

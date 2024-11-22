@@ -32,9 +32,9 @@ def save(order_data):
 
             new_order = Order(customer_id=order_data['customer_id'], products=products_db, date=order_data['date'], total_price=order_data['total_price'])
 
-            where order.id == (order.id just created)
-            where product.id == product for product product_ids
-                qty = product[qty]
+            # where order.id == (order.id just created)
+            # where product.id == product for product product_ids
+            #     qty = product[qty]
             
             session.add(new_order)
             print('New Order ID (before commit):', new_order.id)
@@ -53,6 +53,7 @@ def get():
     with Session(db.engine) as session:
         with session.begin():
             orders = session.query(Order).all()
+            print(orders_schema.jsonify(orders).json)
             json_orders = orders_schema.jsonify(orders).json
             return json_orders
 

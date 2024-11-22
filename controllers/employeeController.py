@@ -20,4 +20,4 @@ def save(): # post request - contains JSON
     
 def get():
     employees = employeeService.get()
-    return employees
+    return employees, 200
