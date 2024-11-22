@@ -26,7 +26,7 @@ def login_customer(username, password):
     user = (db.session.execute(db.select(User).where(User.username == username, User.password == password)).scalar_one_or_none())
     role_names = [role.role_name for role in user.roles]
     if user:
-        # auth_token = encode_token(user.id, role_names)
+        auth_token = encode_token(user.id, role_names)
         print(auth_token)
         print(user.id)
         resp = {

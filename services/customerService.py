@@ -18,6 +18,7 @@ def get():
     with Session(db.engine) as session:
         with session.begin():
             customers = session.query(Customer).all()
+            print
             json_customers = customers_schema.jsonify(customers).json
             return json_customers
         
